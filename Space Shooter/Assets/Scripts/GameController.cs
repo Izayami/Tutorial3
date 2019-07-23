@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -15,14 +16,31 @@ public Text ScoreText;
 public Text RestartText;
 public Text GameOverText;
 private int score;
+private bool gameOver;
+private bool restart;
 
 void Start()
 {
+    gameOver = false;
+    restart = false;
+    GameOverText.text= "";
+    RestartText.text="";
 score = 0;
 UpdateScore();
 StartCoroutine(SpawnWaves());
 }
-
+void Update()
+{
+    if (Input.GetKey("escape"))
+     Application.Quit();
+    if(restart)
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+    {
+    SceneManager.LoadScene("Space Shooter");
+}
+    }
+}
 IEnumerator SpawnWaves()
 {
 yield return new WaitForSeconds(startWait);
@@ -36,6 +54,12 @@ Instantiate(hazard, spawnPosition, spawnRotation);
 yield return new WaitForSeconds(spawnWait);
 }
 yield return new WaitForSeconds(waveWait);
+if (gameOver)
+{
+   RestartText.text = "Press R to Restart";
+   restart = true;
+   break;
+}
 }
 }
 
@@ -48,5 +72,11 @@ UpdateScore();
 void UpdateScore()
 {
 ScoreText.text = "Score: " + score;
+}
+public void GameOver()
+{
+ GameOverText.text = "Game Over!";
+ gameOver= true;
+
 }
 }
