@@ -74,7 +74,7 @@ UpdateScore();
 
 void UpdateScore()
 {
-ScoreText.text = "Score: " + score;
+ScoreText.text = "Points: " + score;
 if(score >=100)
 {
 winText.text="You Win!";
