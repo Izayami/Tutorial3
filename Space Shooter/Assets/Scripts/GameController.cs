@@ -37,7 +37,7 @@ void Update()
      Application.Quit();
     if(restart)
     {
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.T))
     {
     SceneManager.LoadScene("Space Shooter");
 }
@@ -59,7 +59,7 @@ yield return new WaitForSeconds(spawnWait);
 yield return new WaitForSeconds(waveWait);
 if (gameOver)
 {
-   RestartText.text = "Press R to Restart";
+   RestartText.text = "Press T to Restart";
    restart = true;
    break;
 }
