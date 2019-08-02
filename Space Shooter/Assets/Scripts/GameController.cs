@@ -20,6 +20,7 @@ public float waveWait;
 public Text ScoreText;
 public Text RestartText;
 public Text GameOverText;
+public Text LivesText;
 
 public Text winText;
 private int score;
