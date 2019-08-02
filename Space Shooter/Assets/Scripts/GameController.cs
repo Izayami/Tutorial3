@@ -9,6 +9,7 @@ public GameObject[] hazards;
 public Vector3 spawnValues;
 public int hazardCount;
 public float spawnWait;
+public AudioManager audioManager;
 public float startWait;
 public float waveWait;
 
@@ -86,6 +87,5 @@ public void GameOver()
 {
  GameOverText.text = "GAME CREATED BY JEDIEL MELENDEZ";
  gameOver= true;
-
 }
 }
