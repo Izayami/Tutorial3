@@ -10,6 +10,10 @@ public Vector3 spawnValues;
 public int hazardCount;
 public float spawnWait;
 public AudioManager audioManager;
+public AudioClip musicClipOne;
+
+public AudioClip musicClipTwo;
+public AudioSource musicSource;
 public float startWait;
 public float waveWait;
 
@@ -81,11 +85,15 @@ if(score >=100)
 winText.text="You Win! a GAME CREATED BY JEDIEL MELENDEZ";
 gameOver = true;
 restart = true;
+   musicSource.clip = musicClipOne;
+    musicSource.Play();
 }
 }
 public void GameOver()
 {
  GameOverText.text = "GAME CREATED BY JEDIEL MELENDEZ";
  gameOver= true;
+  musicSource.clip = musicClipTwo;
+     musicSource.Play();
 }
 }
