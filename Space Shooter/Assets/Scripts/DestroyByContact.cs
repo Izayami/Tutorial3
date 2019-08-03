@@ -39,9 +39,16 @@ public class DestroyByContact : MonoBehaviour
             Instantiate(playerExplosion, other.transform.position, other.transform.rotation);
             gameController.GameOver();
         }
+         {
+        if (other.gameObject.CompareTag ( "Pick Up"))
+        {
+            other.gameObject.SetActive (false);
+        }
+
 
         gameController.AddScore (scoreValue);
         Destroy (other.gameObject);
         Destroy (gameObject);
     }
+}
 }
